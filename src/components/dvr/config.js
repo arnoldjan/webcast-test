@@ -18,7 +18,7 @@ module.exports = {
         views: {
             'main@': {
                 templateUrl: './views/dvr/dvr.html',
-                controller: 'AppController as appVm'
+                controller: 'DvrController as dvrVm'
             }
         }
     }

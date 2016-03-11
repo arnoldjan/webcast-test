@@ -1,2 +1,18 @@
 <h1 class="text-center">DVR Testseite</h1>
 <bitmovin></bitmovin>
+<row>
+    <form name="dvrVm.form" novalidate>
+        <div class="col-sm-offset-3 col-sm-6">
+            <formly-form
+                    model="dvrVm.model"
+                    fields="dvrVm.fields">
+                <button type="submit"
+                        class="btn btn-default"
+                        ng-click="dvrVm.submit()"
+                        ng-disabled="dvrVm.form.$invalid">
+                    Submit
+                </button>
+            </formly-form>
+        </div>
+    </form>
+</row>

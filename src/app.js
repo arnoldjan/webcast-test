@@ -7,6 +7,8 @@ require('angular-resource');
 require('angular-ui-router');
 require('angular-ui-bootstrap');
 require('angular-loading-bar');
+require('angular-formly');
+require('angular-formly-templates-bootstrap');
 
 var requires = [
     'mi.ResourceBuilder',
@@ -14,6 +16,8 @@ var requires = [
     'ui.router',
     'ui.bootstrap',
     'angular-loading-bar',
+    'formly',
+    'formlyBootstrap',
     require('./components').name
 ];
 

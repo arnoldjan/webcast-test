@@ -3,10 +3,10 @@
  * @ngInject
  */
 
-function bitmovin($window, $document) {
+function bitmovin($window) {
     return {
         templateUrl: 'views/dvr/bitmovin.html',
-        link: function (scope, element) {
+        link: function (scope) {
 
             var conf = {
                 key: 'f48fbdb3-d36b-449d-be3e-142e0c544de9',
