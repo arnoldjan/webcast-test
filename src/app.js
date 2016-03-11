@@ -9,6 +9,9 @@ require('angular-ui-bootstrap');
 require('angular-loading-bar');
 require('angular-formly');
 require('angular-formly-templates-bootstrap');
+require('angular-sanitize');
+require('angular-translate');
+require('angular-translate-loader-partial');
 
 var requires = [
     'mi.ResourceBuilder',
@@ -18,6 +21,8 @@ var requires = [
     'angular-loading-bar',
     'formly',
     'formlyBootstrap',
+    'ngSanitize',
+    'pascalprecht.translate',
     require('./components').name
 ];
 
@@ -31,6 +36,26 @@ angular.module(appName, requires)
         });
         $resourceProvider.defaults.stripTrailingSlashes = true;
     })
+
+    // translation stuff /////////////////////////////////////////////////////////////////////////////////////////////////
+    .config(function ($translateProvider) {
+        $translateProvider.useSanitizeValueStrategy('escape');
+        $translateProvider.useLoader('$translatePartialLoader', {
+            urlTemplate: './i18n/{part}/{lang}.json'
+        });
+        $translateProvider
+            .registerAvailableLanguageKeys(['de','en'], {
+                'de_*': 'de',
+                'en_*': 'en'
+            })
+            .determinePreferredLanguage();
+
+        var language = $translateProvider.preferredLanguage();
+        if (!language.match(/(en).*/) && !language.match(/(de).*/)) {
+            return $translateProvider.preferredLanguage('en');
+        }
+    })
+
     // angular-loading-bar ///////////////////////////////////////////////////////////////////////////////////////////////
     .config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
         cfpLoadingBarProvider.includeSpinner = false;

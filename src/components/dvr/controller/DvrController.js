@@ -3,7 +3,7 @@
 /**
  * @ngInject
  */
-module.exports = function () {
+module.exports = function ($translate) {
     console.log('da');
     var vm = this;
     vm.submit = submit;
@@ -27,8 +27,8 @@ module.exports = function () {
                 templateOptions: {
                     required: true,
                     type: 'string',
-                    label: 'Streamname',
-                    placeholder: 'Streamname'
+                    label: $translate.instant('dvr.form.streamname.placeholder'),
+                    placeholder: $translate.instant('dvr.form.streamname.placeholder')
                 }
             }
         ];
