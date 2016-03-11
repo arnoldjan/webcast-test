@@ -5,11 +5,15 @@ var angular = require('angular');
 require('mi-angular-resource-builder');
 require('angular-resource');
 require('angular-ui-router');
+require('angular-ui-bootstrap');
+require('angular-loading-bar');
 
 var requires = [
     'mi.ResourceBuilder',
     'ngResource',
     'ui.router',
+    'ui.bootstrap',
+    'angular-loading-bar',
     require('./components').name
 ];
 
@@ -22,5 +26,9 @@ angular.module(appName, requires)
             $state.go('app');
         });
         $resourceProvider.defaults.stripTrailingSlashes = true;
-    });
+    })
+    // angular-loading-bar ///////////////////////////////////////////////////////////////////////////////////////////////
+    .config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
+        cfpLoadingBarProvider.includeSpinner = false;
+    }]);
 angular.bootstrap(document, [appName]);

@@ -3,6 +3,6 @@
 /**
  * @ngInject
  */
-module.exports = function() {
+module.exports = function ($http) {
 
 };

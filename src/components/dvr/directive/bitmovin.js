@@ -17,7 +17,7 @@ function bitmovin($window, $document) {
                     width: '100%'
                 },
                 playback: {
-                    autoplay: true,
+                    autoplay: false,
                     timeShift: false
                 },
                 events: {
