@@ -1,6 +1,6 @@
 {
   "name": "webcast-test",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "DVR Test Page",
   "author": "MovingIMAGE24",
   "main": "web.js",
