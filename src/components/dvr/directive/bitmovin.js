@@ -6,12 +6,22 @@
 function bitmovin($window) {
     return {
         templateUrl: 'views/dvr/bitmovin.html',
+        controller: 'DvrController',
+        controllerAs: 'vm',
+        bindToController: true,
+        scope: {
+            hlsurl: '@'
+        },
         link: function (scope) {
-
+            console.log('####### ', scope.hlsurl);
+            scope.$watch('hlsurl', function (newValue, oldValue) {
+                console.log('hurra! ' + newValue + ' old: ' + oldValue);
+            });
             var conf = {
                 key: 'f48fbdb3-d36b-449d-be3e-142e0c544de9',
                 source: {
-                    hls: 'http://10.10.4.14:1935/mi-webcast/myStream8b/master.m3u8?DVR'
+                    //hls: 'http://10.10.4.14:1935/mi-webcast/myStream8b/master.m3u8?DVR'
+                    hls: scope.hlsurl
                 },
                 style: {
                     width: '100%'

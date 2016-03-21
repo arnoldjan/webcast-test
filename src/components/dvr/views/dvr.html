@@ -1,5 +1,6 @@
 <h1 class="text-center" translate="dvr.headline"></h1>
-<bitmovin></bitmovin>
+<div>Streamname: {{ dvrVm.model.streamname }}</div>
+<bitmovin hlsurl="{{ dvrVm.model.streamname }}"></bitmovin>
 <row>
     <form name="dvrVm.form" novalidate>
         <div class="col-sm-offset-3 col-sm-6">
